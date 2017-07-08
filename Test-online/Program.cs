@@ -16,7 +16,17 @@ namespace Test_online
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            FLogin f = new FLogin();
+            switch (f.ShowDialog())
+            {
+                case DialogResult.OK:
+                    FStuMain fmain = new FStuMain();
+                    fmain.stuNumber = f.stuNumber;
+                    Application.Run(fmain);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
