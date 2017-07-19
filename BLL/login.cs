@@ -18,26 +18,57 @@ namespace BLL
         /// <param name="pwd"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public LogState check_user_info(string stuNumber, string pwd)
+        public LogState check_user_info(string stuNumber, string pwd,bool Type )
         {
-            DAL.StuLogin dal = new DAL.StuLogin();
-            DataTable dt = dal.get_user_info(stuNumber.Trim());
-            if (dt.Rows.Count == 0)
+
+
+            if (Type)//教师登录
             {
-                return LogState.None;
+                DAL. teacher dal = new DAL.teacher();
+                DataTable dt = dal.get_user_info(stuNumber.Trim());
+
+                if (dt.Rows.Count == 0)
+                {
+                    return LogState.None;
+                }
+
+                DataRow dr = dt.Rows[0];
+
+                if (dr[2].ToString().Trim() == pwd.Trim())
+                {
+                    return LogState.teacherSuccess;
+                }
+                else
+                {
+
+                    return LogState.PwdErr;
+                }
+
+            }
+            else {
+                DAL.Admin dal = new DAL.Admin();
+                DataTable dt = dal.get_user_info(stuNumber.Trim());
+
+                if (dt.Rows.Count == 0)
+                {
+                    return LogState.None;
+                }
+
+                DataRow dr = dt.Rows[0];
+
+                if (dr[1].ToString().Trim() == pwd.Trim())
+                {
+                    return LogState.adminSuccess;
+                }
+                else
+                {
+
+                    return LogState.PwdErr;
+                }
+
             }
 
-            DataRow dr = dt.Rows[0];
-
-            if (dr[3].ToString().Trim() == pwd.Trim() )
-            {            
-                    return LogState.stuSuccess;
-            }
-            else
-            {
-
-                return LogState.PwdErr;
-            }
+     
         }
         #endregion
 

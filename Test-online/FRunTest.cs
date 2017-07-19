@@ -18,7 +18,9 @@ namespace Test_online
         public string stuNumber;
         KeyValuePair<string, string>[] stuAnswers;
         int type;//记录当前问题的类型
-        string topic_stem;
+        string topic_stem;//问题题干
+        public  int rest_time;
+            
         public FRunTest()
         {
             InitializeComponent();
@@ -35,6 +37,8 @@ namespace Test_online
             string titles = dt.Rows[0][4].ToString();
             string[] titlesArray = titles.Split(','); //表明是哪些题目；
             stuAnswers = new KeyValuePair<string, string>[titlesArray.Count()];//用来存储学生的答案
+            
+            label2.Text = this.rest_time.ToString();
 
             List<KeyValuePair<string, int>> list = new List<KeyValuePair<string, int>>();
             int i = 1;
@@ -86,13 +90,13 @@ namespace Test_online
                 radioButton4.Visible = false;
 
 
-                label_topic_title.Text = answers[0];
+                tb_topic.Text = answers[0];
                 topic_stem = answers[0];
-                checkBox1.Text = "A" + answers[1];
-                checkBox2.Text = "B" + answers[2];
-                checkBox3.Text = "C" + answers[3];
+                checkBox1.Text = "A." + answers[1];
+                checkBox2.Text = "B." + answers[2];
+                checkBox3.Text = "C." + answers[3];
 
-                checkBox4.Text = "D" + answers[4];
+                checkBox4.Text = "D." + answers[4];
 
 
             }
@@ -125,15 +129,15 @@ namespace Test_online
                 checkBox3.Visible = false;
                 checkBox4.Visible = false;
 
-                label_topic_title.Text = answers[0];
+                tb_topic.Text = answers[0];
                 topic_stem = answers[0];
 
                 this.stuAnswers[clb_title.SelectedIndex] = new KeyValuePair<string, string>(answers[0], "");
-                radioButton1.Text = "A" + answers[1];
-                radioButton2.Text = "B" + answers[2];
-                radioButton3.Text = "C" + answers[3];
+                radioButton1.Text = "A." + answers[1];
+                radioButton2.Text = "B." + answers[2];
+                radioButton3.Text = "C." + answers[3];
 
-                radioButton4.Text = "D" + answers[4];
+                radioButton4.Text = "D." + answers[4];
             }
             #endregion
 
@@ -233,6 +237,27 @@ namespace Test_online
                 MessageBox.Show("没有下一题啦");
             }
             #endregion
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.rest_time = rest_time-1;
+            this.label2.Text = rest_time.ToString();
+            if (rest_time ==15) {
+                MessageBox.Show(" 时间还剩15分钟，请尽快完成试卷");
+            }
+            if (rest_time <= 0)
+            {
+                MessageBox.Show(" 时间到，系统将自动提交你的的答案");
+                btn_ascert.PerformClick();
+            }
 
 
         }

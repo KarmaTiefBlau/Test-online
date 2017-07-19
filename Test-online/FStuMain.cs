@@ -30,6 +30,7 @@ namespace Test_online
             if (dgv_examList.SelectedRows.Count >= 1)
             {
                 faj.ExamId = Convert.ToInt32(dgv_examList.SelectedRows[0].Cells[0].Value);
+                faj.rest_time = Convert.ToInt32(dgv_examList.SelectedRows[0].Cells[5].Value);
                 faj.stuNumber = this.stuNumber;
                 faj.ShowDialog();
             }

@@ -34,6 +34,8 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cb_user_type = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // tBName
@@ -55,9 +57,9 @@
             // 
             this.btnOK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnOK.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.btnOK.Location = new System.Drawing.Point(516, 150);
+            this.btnOK.Location = new System.Drawing.Point(508, 170);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(108, 26);
+            this.btnOK.Size = new System.Drawing.Size(125, 26);
             this.btnOK.TabIndex = 3;
             this.btnOK.Text = "登陆";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -85,6 +87,30 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "密   码";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(409, 134);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 21);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "用户类型";
+            // 
+            // cb_user_type
+            // 
+            this.cb_user_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_user_type.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cb_user_type.FormattingEnabled = true;
+            this.cb_user_type.Items.AddRange(new object[] {
+            "教师",
+            "管理员"});
+            this.cb_user_type.Location = new System.Drawing.Point(508, 134);
+            this.cb_user_type.Name = "cb_user_type";
+            this.cb_user_type.Size = new System.Drawing.Size(125, 20);
+            this.cb_user_type.TabIndex = 11;
+            // 
             // FLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -92,6 +118,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(692, 476);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cb_user_type);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnOK);
@@ -117,6 +145,8 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cb_user_type;
     }
 }
 

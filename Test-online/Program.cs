@@ -19,10 +19,13 @@ namespace Test_online
             FLogin f = new FLogin();
             switch (f.ShowDialog())
             {
+                case DialogResult.Abort:
+                    FTeacher fteacher = new FTeacher();
+                    Application.Run(fteacher);
+                    break;
                 case DialogResult.OK:
-                    FStuMain fmain = new FStuMain();
-                    fmain.stuNumber = f.stuNumber;
-                    Application.Run(fmain);
+                    FAdmin fadmin = new FAdmin();
+                    Application.Run(fadmin);
                     break;
                 default:
                     break;

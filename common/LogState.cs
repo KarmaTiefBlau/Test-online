@@ -20,13 +20,13 @@ namespace Common
         /// </summary>
         stuSuccess,
         /// <summary>
+        /// 管理员登陆成功
+        /// </summary>
+        adminSuccess,
+        /// <summary>
         /// 老师登陆成功
         /// </summary>
         teacherSuccess,
-        /// <summary>
-        /// 管理员登陆成功
-        /// </summary>
-        amdSuccess,
         /// <summary>
         /// 密码错误
         /// </summary>

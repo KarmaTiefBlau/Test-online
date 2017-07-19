@@ -35,26 +35,33 @@ namespace Test_online
 
 
 
-            BLL.login  bll = new BLL.login();
+            BLL.login bll = new BLL.login();
 
-            //bool type;
-            //if (cb_user_type.SelectedIndex == 0)
-            //{
-            //    type = true;
-            //}
-            //else
-            //{
-            //    type = false;
-            //}
-            switch (bll.check_user_info(tBName.Text, tBPwd.Text))
+            bool type;
+            if (cb_user_type.SelectedIndex == 0)
+            {
+                type = true;//教师
+
+            }
+            else
+            {
+                type = false;//管理员
+
+            }
+            switch (bll.check_user_info(tBName.Text, tBPwd.Text, type))
             {
                 case Common.LogState.None:
                     MessageBox.Show("用户不存在");
                     break;
 
-                case Common.LogState.stuSuccess:
-                    MessageBox.Show("学生用户登陆成功");
-                    this.DialogResult = DialogResult.OK;
+                case Common.LogState.adminSuccess:
+                    MessageBox.Show("管理员登陆成功");
+                    this.DialogResult = DialogResult.OK;//标记为管理员登录
+                    stuNumber = tBName.Text;
+                    break;
+                case Common.LogState.teacherSuccess:
+                    MessageBox.Show("教师登陆成功");
+                    this.DialogResult = DialogResult.Abort;//标记为教师登录
                     stuNumber = tBName.Text;
                     break;
                 case Common.LogState.PwdErr:
@@ -68,6 +75,7 @@ namespace Test_online
 
         private void FLogin_Load(object sender, EventArgs e)
         {
+            cb_user_type.SelectedIndex = 0;
 
         }
 

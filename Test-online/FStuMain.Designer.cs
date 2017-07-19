@@ -61,7 +61,7 @@
             // 
             this.btn_text.BackColor = System.Drawing.SystemColors.Info;
             this.btn_text.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_text.Location = new System.Drawing.Point(249, 265);
+            this.btn_text.Location = new System.Drawing.Point(288, 254);
             this.btn_text.Name = "btn_text";
             this.btn_text.Size = new System.Drawing.Size(112, 43);
             this.btn_text.TabIndex = 2;
@@ -74,7 +74,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(694, 380);
+            this.ClientSize = new System.Drawing.Size(694, 333);
             this.Controls.Add(this.btn_text);
             this.Controls.Add(this.dgv_examList);
             this.Controls.Add(this.menuStrip1);
